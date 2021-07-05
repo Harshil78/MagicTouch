@@ -1,0 +1,741 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserMaster.master.cs" Inherits="UserSide_UserMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Event </title>
+
+	<!-- Google font -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700,900" rel="stylesheet">
+
+	<!-- Bootstrap -->
+	<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+	<!-- Owl Carousel -->
+	<link type="text/css" rel="stylesheet" href="css/owl.carousel.css" />
+	<link type="text/css" rel="stylesheet" href="css/owl.theme.default.css" />
+
+	<!-- Font Awesome Icon -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" href="css/style.css" />
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+			  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+			  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+			<![endif]-->
+            <script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	
+	
+	<script src="js/jquery.countTo.js"></script>
+	<script src="js/main.js"></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+            
+	<!-- Header -->
+	<header id="header" class="transparent-navbar"  >
+		<!-- container -->
+        <div class="container"  >
+			<!-- navbar header -->
+			<div class="navbar-header" >
+				<!-- Logo -->
+				<div class="navbar-brand">
+					<a class="logo" href="Home.aspx">
+						<img class="logo-img" src="../Images/WBLG.jpg" alt="logo">
+						<img class="logo-alt-img" src="../Images/WBLG.jpg" alt="logo">
+					</a>
+				</div>
+				<!-- /Logo -->
+
+				<!-- Mobile toggle -->
+				<button class="navbar-toggle">
+						<i class="fa fa-bars"></i>
+					</button>
+				<!-- /Mobile toggle -->
+			</div>
+			<!-- /navbar header -->
+
+			<!-- Navigation -->
+			<nav id="nav">
+				<ul class="main-nav nav navbar-nav navbar-right">
+					<li ><a href="Home.aspx">Home</a></li>
+					<li ><a href="About.aspx">About US</a></li>
+					<li><a href="EventHistory.aspx">Event History</a></li>
+					<li><a href="EventDetails.aspx">Events</a></li>
+					<li><a href="Contact.aspx">contact</a></li>
+			      <style>
+                    a.ex2:hover, a.ex2:active {font-size: 130%;}
+                    
+                   
+                    ul li {display: inline-block;}
+                    ul li:hover {background: black;}
+                    ul li:hover ul {display: block;}
+                   
+                    ul li ul li { 
+                      background: black; 
+                      display: block; 
+                    }
+                     ul li ul li a {display:block !important;} 
+                    ul li ul li:hover {background: #666;} 
+                    </style>
+                                        
+					<li class="dropdown" >
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:black;padding:10px"><img src='../Images/<%= Session["Image"] %>' style="border-radius:24px " alt="Not Found" height="48px" width="48px" /><br /><span style="color:White;font-size:10px;text-transform:capitalize">Welcome, <%= Session["UserName"] %></span></a><%--</li>--%>
+                              
+                        <ul class="dropdown-menu" style="background-color:black;"  >
+                          <li><a href="EditProfile.aspx" class="li1-modal ex2" style="color:White;padding:7px;">Edit Profile</a></li>
+                          <li><a href="ChangePass.aspx" class="ch-modal ex2" style="color:White;padding:7px">Change Password</a></li>
+                          <li><a href="LogOut.aspx" style="color:White;padding:7px" class="ex2">Log Out</a></li>
+                        </ul>
+                      </li>
+                    
+            	</ul>
+			</nav>
+			<!-- /Navigation -->
+		</div>
+		<!-- /container -->
+	</header>
+	<!-- /Header -->
+     <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+       <div id="theModal" class="modal  fade  ">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                          </div>
+                        </div>
+                     
+                      <script>
+                          $('.ch-modal').on('click', function (e) {
+                              e.preventDefault();
+                              $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
+                          });
+                      </script>
+                       <script>
+                           $('.li1-modal').on('click', function (e) {
+                               e.preventDefault();
+                               $('#theModal').modal('show').find('.modal-content').load($(this).attr('href'));
+                           });
+                      </script>
+                     
+         </div>
+                     
+                      
+                      
+         </div>
+	<!-- Home -->
+	<%--<div id="home">
+		<!-- background image -->
+	<div class="section-bg" style="background-image:url(../Images/background01.jpg);" data-stellar-background-ratio="0.5"></div>
+		<!-- /background image -->
+
+		<!-- home wrapper -->
+		<div class="home-wrapper">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- home content -->
+					<div class="col-md-8 col-md-offset-2">
+						<div class="home-content">
+							<h1>Lorem ipsum dolor sit amet</h1>
+							<h4 class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h4>
+							<a href="#" class="main-btn">Buy Ticket</a>
+						</div>
+					</div>
+					<!-- /home content -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /home wrapper -->
+	</div>--%>
+	<!-- /Home -->
+
+	<!-- About -->
+	<%--<div id="about" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- section title -->
+				<div class="section-title">
+					<h3 class="title"><span>About</span> <span style="color: #dd0a37;">Event</span></h3>
+				</div>
+				<!-- /section title -->
+
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<!-- about content -->
+					<div class="about-content">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+							dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+					<!-- /about content -->
+
+					<!-- Numbers -->
+					<div id="numbers">
+						<!-- row -->
+						<div class="row">
+							<!-- number -->
+							<div class="col-md-3 col-sm-3 col-xs-6">
+								<div class="number">
+									<h3><span class="counter" data-from="0" data-to="900" data-speed="1500">0</span>+</h3>
+									<p>Hours</p>
+								</div>
+							</div>
+							<!-- /number -->
+
+							<!-- number -->
+							<div class="col-md-3 col-sm-3 col-xs-6">
+								<div class="number">
+									<h3><span class="counter" data-from="0" data-to="750" data-speed="1500">0</span>+</h3>
+									<p>Venues</p>
+								</div>
+							</div>
+							<!-- /number -->
+
+							<!-- number -->
+							<div class="col-md-3 col-sm-3 col-xs-6">
+								<div class="number">
+									<h3><span class="counter" data-from="0" data-to="50" data-speed="1500">0</span>+</h3>
+									<p>Country</p>
+								</div>
+							</div>
+							<!-- /number -->
+
+							<!-- number -->
+							<div class="col-md-3 col-sm-3 col-xs-6">
+								<div class="number">
+									<h3><span class="counter" data-from="0" data-to="20" data-speed="1500">0</span>+</h3>
+									<p>Speakers</p>
+								</div>
+							</div>
+							<!-- /number -->
+						</div>
+						<!-- /row -->
+					</div>
+					<!-- /Numbers -->
+				</div>
+			</div>
+			<!-- row -->
+		</div>
+		<!-- /container -->
+	</div>--%>
+	<!-- /About -->
+
+	<!-- Galery -->
+	<%--<div id="galery">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- galery owl -->
+				<div id="galery-owl" class="owl-carousel owl-theme">
+					<!-- galery item -->
+					<div class="galery-item">
+						<img src="../Images/galery01.jpg" alt="">
+					</div>
+					<!-- /galery item -->
+
+					<!-- galery item -->
+					<div class="galery-item">
+						<img src="../Images/galery02.jpg" alt="">
+					</div>
+					<!-- /galery item -->
+
+					<!-- galery item -->
+					<div class="galery-item">
+						<img src="../Images/galery03.jpg" alt="">
+					</div>
+					<!-- /galery item -->
+
+				</div>
+				<!-- /galery owl -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>--%>
+	<!-- /Galery -->
+
+	<%--<!-- Video CTA -->
+	<div id="video-cta" class="section">
+		<!-- background image -->
+		<div class="section-bg" style="background-image:url(../Images/background02.jpg)" data-stellar-background-ratio="0.5"></div>
+		<!-- /background image -->
+
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- cta content -->
+				<div class="col-md-8 col-md-offset-2">
+					<div class="cta-content text-center">
+						<a class="video-play" href="#">
+							<i class="fa fa-play"></i>
+						</a>
+						<h2>Watch this video</h2>
+						<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+					</div>
+				</div>
+				<!-- /cta content -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /Video CTA -->--%>
+
+	<!-- Event Schedule -->
+	<%--<div id="schedule" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- section title -->
+				<div class="section-title">
+					<h3 class="title"><span>Event</span> <span style="color: #dd0a37;">Schedule</span></h3>
+				</div>
+				<!-- /section title -->
+
+				<div class="col-md-8 col-md-offset-2">
+
+					<div class="events-wrapper">
+						<!-- event -->
+						<div class="event">
+							<div class="event-day">
+								<div>
+									<span class="day">15</span>
+									<span class="year">Feb, 2018</span>
+								</div>
+							</div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">His id altera fabellas facilisis. Has eros assueverit cu</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-hour"></div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">Perpetua consectetuer definitiones id sea, mei utinam eripuit ne</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-hour"></div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">At mucius deserunt delicatissimi eam, labitur detraxit ut sit</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-day">
+								<div>
+									<span class="day">16</span>
+									<span class="year">Feb, 2018</span>
+								</div>
+							</div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">His id altera fabellas facilisis. Has eros assueverit cu</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-hour"></div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">At mucius deserunt delicatissimi eam, labitur detraxit ut sit</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-day">
+								<div>
+									<span class="day">17</span>
+									<span class="year">Feb, 2018</span>
+								</div>
+							</div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">His id altera fabellas facilisis. Has eros assueverit cu</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+
+						<!-- event -->
+						<div class="event">
+							<div class="event-hour"></div>
+							<div class="event-content">
+								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
+								<h3 class="event-title">At mucius deserunt delicatissimi eam, labitur detraxit ut sit</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+								<p>By <a href="#">John Doe</a></p>
+							</div>
+						</div>
+						<!-- /event -->
+					</div>
+
+					<div class="download-btn">
+						<a href="#" class="main-btn">Download Schedule</a>
+					</div>
+
+				</div>
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>--%>
+	<!-- /Event Schedule -->
+
+	<!-- Speakers -->
+	<%--<div id="speakers" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- section title -->
+				<div class="section-title">
+					<h3 class="title"><span>Our</span> <span style="color: #dd0a37;">Speakers</span></h3>
+				</div>
+				<!-- section title -->
+
+				<!-- speaker -->
+				<div class="col-md-4 col-sm-6">
+					<div class="speaker" data-toggle="modal" data-target="#speaker-modal-1">
+						<div class="speaker-img">
+							<img src="../Images/speaker01.jpg" alt="">
+						</div>
+						<div class="speaker-body">
+							<div class="speaker-social">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-instagram"></i></a>
+								<a href="#"><i class="fa fa fa-linkedin"></i></a>
+							</div>
+							<div class="speaker-content">
+								<h2>John Doe</h2>
+								<span>Manager, CEO</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /speaker -->
+
+				<!-- speaker -->
+				<div class="col-md-4 col-sm-6">
+					<div class="speaker" data-toggle="modal" data-target="#speaker-modal-1">
+						<div class="speaker-img">
+							<img src="../Images/speaker02.jpg" alt="">
+						</div>
+						<div class="speaker-body">
+							<div class="speaker-social">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-instagram"></i></a>
+								<a href="#"><i class="fa fa fa-linkedin"></i></a>
+							</div>
+							<div class="speaker-content">
+								<h2>John Doe</h2>
+								<span>Manager, CEO</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /speaker -->
+
+				<!-- speaker -->
+				<div class="col-md-4 col-sm-6">
+					<div class="speaker" data-toggle="modal" data-target="#speaker-modal-1">
+						<div class="speaker-img">
+							<img src="../Images/speaker03.jpg" alt="">
+						</div>
+						<div class="speaker-body">
+							<div class="speaker-social">
+								<a href="#"><i class="fa fa-facebook"></i></a>
+								<a href="#"><i class="fa fa-twitter"></i></a>
+								<a href="#"><i class="fa fa-instagram"></i></a>
+								<a href="#"><i class="fa fa fa-linkedin"></i></a>
+							</div>
+							<div class="speaker-content">
+								<h2>John Doe</h2>
+								<span>Manager, CEO</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /speaker -->
+
+				<!-- speaker modal -->
+				<div id="speaker-modal-1" class="speaker-modal modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-5">
+										<div class="speaker-modal-img">
+											<img src="../Images/speaker-info.jpg" alt="">
+										</div>
+									</div>
+									<div class="col-md-7">
+										<div class="speaker-modal-content">
+											<h2 class="speaker-name">John Doe</h2>
+											<span class="speaker-job">- Manager, CEO</span>
+
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+												irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+											<div class="speaker-website">
+												<h4>Website</h4>
+												<a href="#">www.johndoe.com</a>
+											</div>
+
+											<div class="speaker-social">
+												<h4>Social Profile</h4>
+												<a href="#"><i class="fa fa-facebook"></i></a>
+												<a href="#"><i class="fa fa-twitter"></i></a>
+												<a href="#"><i class="fa fa-instagram"></i></a>
+												<a href="#"><i class="fa fa fa-linkedin"></i></a>
+											</div>
+
+											<div class="speaker-events">
+												<h4>Sessions</h4>
+												<div class="speaker-event">
+													<span><strong>Day 1 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>His id altera fabellas facilisis. Has eros assueverit cu</p>
+												</div>
+
+												<div class="speaker-event">
+													<span><strong>Day 2 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
+													<p>At mucius deserunt delicatissimi eam, labitur detraxit ut sit</p>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /speaker modal -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>--%>
+	<!-- /Speakers -->
+
+	<!-- Sponsors -->
+	<%--<div id="sponsors" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- section title -->
+				<div class="section-title">
+					<h3 class="title"><span>Our</span> <span style="color: #dd0a37;">Sponsors</span></h3>
+				</div>
+				<!-- /section title -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" class="sponsor">
+						<img src="../Images/sponsor.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" class="sponsor">
+						<img src="../Images/sponsor.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" class="sponsor">
+						<img src="../Images/sponsor.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" class="sponsor">
+						<img src="../Images/sponsor.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" class="sponsor">
+						<img src="../Images/sponsor.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" class="sponsor">
+						<img src="../Images/sponsor.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" class="sponsor">
+						<img src="../Images/sponsor.png" alt="">
+					</a>
+				</div>
+				<!-- /sponsor -->
+
+				<!-- sponsor -->
+				<div class="col-md-3 col-sm-4 col-xs-6">
+					<a href="#" class="sponsor">
+						<img src="../Images/sponsor.png" alt="">
+					</a>
+				</div>--%>
+				<!-- /sponsor -->
+
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>
+	<!-- /Sponsors -->
+
+	<!-- CTA -->
+	<%--<div id="cta" class="section">
+		<!-- background image -->
+		<div class="section-bg" style="background-image:url(../Images/background03.jpg)" data-stellar-background-ratio="0.5"></div>
+		<!-- /background image -->
+
+		<!-- container -->
+		<div class="container">
+			<!-- container -->
+			<div class="row">
+				<!-- cta content -->
+				<div class="col-md-8 col-md-offset-2">
+					<div class="cta-content text-center">
+						<h2>Get Ticket Now!</h2>
+						<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<a href="#" class="main-btn">Buy Ticket</a>
+					</div>
+				</div>
+				<!-- /cta content -->
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</div>--%>
+	<!-- /CTA -->
+
+	<!-- Contact -->
+<%--	<div id="contact" class="section">
+		<!-- container -->
+		<div class="container">
+			<!-- row -->
+			<div class="row">
+				<!-- section title -->
+				<div class="section-title">
+					<h3 class="title"><span>Contact</span> <span style="color: #dd0a37;">Info</span></h3>
+				</div>
+				<!-- /section title -->
+
+				<!-- contact -->
+				<div class="col-sm-4">
+					<div class="contact">
+						<h3>Address</h3>
+						<p>India,Surat</p>
+					</div>
+				</div>
+				<!-- /contact -->
+
+				<!-- contact -->
+				<div class="col-sm-4">
+					<div class="contact">
+						<h3>Phone</h3>
+						<p>7041206200,7096892323</p>
+					</div>
+				</div>
+				<!-- /contact -->
+
+				<!-- contact -->
+				<div class="col-sm-4">
+					<div class="contact">
+						<h3>Email</h3>
+						<a href="#">Harshildalal@gmail.com</a>
+					</div>
+				</div>
+				<!-- /contact -->
+
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+
+			</div>--%>
+	<!-- /Contact -->		
+			
+            
+			</div>
+			<!-- /row -->
+		</div>
+		<!-- /container -->
+	</footer>
+	<!-- /Footer -->
+
+
+    </form>
+</body>
+
+</html>

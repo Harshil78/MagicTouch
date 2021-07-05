@@ -1,0 +1,84 @@
+﻿    /* Remove the navbar's default margin-bottom and rounded borders */
+.title {
+    background-color:#004D40;
+}
+.titletext1 {
+   color: #F57F17;
+   font-weight:600;
+   font-size:24px;
+}
+
+.titletext2 {
+    color: #E0F2F1;
+}
+
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding: 0px;
+      padding-top: 30px;
+      background-color: #F1F8E9;
+      color:black;
+      height: 100%;
+    }
+.sidenav>ul>li>a:hover {
+    background-color: #004D40;
+    color:#F1F8E9;
+} 
+
+.sidenav>ul>li>a {
+    color:#004D40;
+    
+} 
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #004D40;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+        
+      }
+      .row.content {height:auto;} 
+    }
+.add {
+    margin:10px;
+    margin-bottom:20px;
+}
+
+.add>a {
+      text-decoration:none;
+      color:white;
+      padding:10px;
+          border-radius:5px;
+    background-color: #004D40;
+
+
+}
+.add>a:hover {
+      color:#004D40;
+    background-color:  #F1F8E9;
+}
+
+
+
+*
+{
+     color:white; 
+     
+     font-size:medium;
+     font-family:Arial;
+}
